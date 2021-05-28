@@ -1,30 +1,32 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:mobx/mobx.dart';
 import '../logger.dart';
 
-class BaseViewModel extends ChangeNotifier {
-  String _title;
-  bool _busy;
-  Logger log;
-  bool _isDisposed = false;
-
+abstract class BaseViewModel extends ChangeNotifier with Store {
+  String? _title;
+  bool? _busy;
+  Logger? log;
+  bool? _isDisposed = false;
+  BuildContext? context;
   BaseViewModel({
     bool busy = false,
-    String title,
+    String? title,
   })  : _busy = busy,
-      _title = title {
+        _title = title {
     log = getLogger(title ?? this.runtimeType.toString());
   }
 
-  bool get busy => this._busy;
-  bool get isDisposed => this._isDisposed;
+  bool get busy => this._busy!;
+  bool get isDisposed => this._isDisposed!;
   String get title => _title ?? this.runtimeType.toString();
 
   set busy(bool busy) {
-    log.i(
-        'busy: '
-        '$title is entering '
-        '${busy ? 'busy' : 'free'} state',
+    log!.i(
+      'busy: '
+      '$title is entering '
+      '${busy ? 'busy' : 'free'} state',
     );
     this._busy = busy;
     notifyListeners();
@@ -33,17 +35,19 @@ class BaseViewModel extends ChangeNotifier {
   @override
   void notifyListeners() {
     if (!isDisposed) {
-        super.notifyListeners();
+      super.notifyListeners();
     } else {
-        log.w('notifyListeners: Notify listeners called after '
-            '${title ?? this.runtimeType.toString()} has been disposed');
+      log!.w('notifyListeners: Notify listeners called after '
+          '${title ?? this.runtimeType.toString()} has been disposed');
     }
   }
 
   @override
   void dispose() {
-    log.i('dispose');
+    log!.i('dispose');
     _isDisposed = true;
     super.dispose();
   }
+
+  void setContext(BuildContext context);
 }

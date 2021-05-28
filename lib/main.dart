@@ -1,24 +1,28 @@
+import 'package:celebi_app/core/init/navigation/navigation_route.dart';
+import 'package:celebi_app/core/init/notifier/theme_notifier.dart';
+import 'package:celebi_app/views/authantication/login/view/login_view.dart';
+import 'core/init/navigation/navigation_service.dart';
 import 'core/locator.dart';
 import 'core/providers.dart';
-import 'core/services/navigator_service.dart';
+//
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'views/home/home/home.dart';
 
 void main() async {
   await LocatorInjector.setupLocator();
-  runApp(MainApplication());
+  runApp(MyApp());
 }
 
-class MainApplication extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: ProviderInjector.providers,
       child: MaterialApp(
-        navigatorKey: locator<NavigatorService>().navigatorKey,
-        theme: ThemeData(fontFamily: 'Poppins'),
-        home: Home(),
+        onGenerateRoute: NavigationRoute.instance.generateRoute,
+        navigatorKey: locator<NavigationService>().navigatorKey,
+        theme: Provider.of<ThemeNotifier>(context, listen: false).currentTheme,
+        home: LoginView(),
       ),
     );
   }
