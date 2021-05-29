@@ -1,5 +1,7 @@
+import 'package:celebi_app/core/locators.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+
 import 'init/navigation/navigation_service.dart';
 import 'init/notifier/theme_notifier.dart';
 
@@ -19,7 +21,7 @@ class ProviderInjector {
     ChangeNotifierProvider(
       create: (context) => ThemeNotifier(),
     ),
-    Provider.value(value: NavigationService.instance)
+    Provider.value(value: locator<NavigationService>()),
   ];
 
   List<SingleChildWidget> _dependentServices = [];
