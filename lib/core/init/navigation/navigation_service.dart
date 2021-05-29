@@ -1,4 +1,4 @@
-import 'package:celebi_app/core/init/navigation/INavigationService.dart';
+import 'INavigationService.dart';
 import 'package:flutter/material.dart';
 
 class NavigationService implements INavigationService {

@@ -1,5 +1,6 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+
 import 'init/navigation/navigation_service.dart';
 import 'init/notifier/theme_notifier.dart';
 

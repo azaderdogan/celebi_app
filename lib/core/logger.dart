@@ -1,4 +1,5 @@
 import 'dart:developer' as prefix0;
+
 import 'package:logger/logger.dart';
 
 class SimpleLogPrinter extends LogPrinter {

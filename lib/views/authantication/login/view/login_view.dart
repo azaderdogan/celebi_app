@@ -1,7 +1,8 @@
-import 'package:celebi_app/core/base/base_view.dart';
-import 'package:celebi_app/views/authantication/login/viewmodel/login_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../../../core/base/base_view.dart';
+import '../viewmodel/login_view_model.dart';
 
 /// view oluşturum baze view sarmala
 class LoginView extends StatefulWidget {
@@ -29,13 +30,21 @@ class _LoginViewState extends State<LoginView> {
   }
 
   Widget get scafooldBody => Scaffold(
+        appBar: AppBar(
+          title: Text('Login'),
+        ),
         floatingActionButton: floatingActionButtonIncrement,
         body: textNumber,
       );
 
   Widget get textNumber {
-    return Observer(
-        builder: (_) => Text('Login View ${viewModel.number.toString()}'));
+    return Center(
+      child: Observer(
+        builder: (context) => Text(
+          viewModel.number.toString(),
+        ),
+      ),
+    );
   }
 }
 /**

@@ -1,6 +1,6 @@
-import 'package:celebi_app/core/constants/navigation/navigation_constants.dart';
-import 'package:celebi_app/core/widgets/card/not_found_navigation_widget.dart';
-import 'package:celebi_app/views/authantication/login/view/login_view.dart';
+import '../../constants/navigation/navigation_constants.dart';
+import '../../widgets/card/not_found_navigation_widget.dart';
+import '../../../views/authantication/login/view/login_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

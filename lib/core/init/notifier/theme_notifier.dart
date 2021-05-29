@@ -1,6 +1,7 @@
-import 'package:celebi_app/core/constants/enums/app_theme_enum.dart';
-import 'package:celebi_app/core/init/theme/app_theme_light.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/enums/app_theme_enum.dart';
+import '../theme/app_theme_light.dart';
 
 class ThemeNotifier extends ChangeNotifier {
   ThemeData _currentTheme = AppThemeLight.instance.themeData;
