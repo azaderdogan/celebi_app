@@ -1,6 +1,6 @@
 import 'package:logger/logger.dart';
 
-import '../logger.dart';
+import '../../logger.dart';
 
 class BaseService {
   Logger? log;

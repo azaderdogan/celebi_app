@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import '../logger.dart';
+import '../../logger.dart';
+
 
 abstract class BaseViewModel {
   String? _title;

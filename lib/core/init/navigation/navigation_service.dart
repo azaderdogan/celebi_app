@@ -2,13 +2,6 @@ import 'INavigationService.dart';
 import 'package:flutter/material.dart';
 
 class NavigationService implements INavigationService {
-  static NavigationService? _instance;
-  static NavigationService get instance {
-    _instance ??= NavigationService._init();
-    return _instance!;
-  }
-
-  NavigationService._init();
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
   final removeAllOldRoutes = (Route<dynamic> route) => false;
 

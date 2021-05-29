@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/base/base_view_model.dart';
+import '../../../../core/base/viewmodel/base_view_model.dart';
 import '../../../../core/constants/enums/app_theme_enum.dart';
 import '../../../../core/init/notifier/theme_notifier.dart';
 
