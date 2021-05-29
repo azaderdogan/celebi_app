@@ -4,11 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 /// view oluşturum baze view sarmala
-class LoginView extends StatelessWidget {
-  LoginViewModel? viewModel;
+class LoginView extends StatefulWidget {
+  @override
+  _LoginViewState createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  late LoginViewModel viewModel;
 
   Widget get floatingActionButtonIncrement {
-    return FloatingActionButton(onPressed: () => viewModel!.incerementNumber());
+    return FloatingActionButton(onPressed: () => viewModel.incerementNumber());
   }
 
   @override
@@ -17,8 +22,8 @@ class LoginView extends StatelessWidget {
       viewModel: LoginViewModel(),
       onPageBuilder: (context, value) => scafooldBody,
       onModelReady: (model) {
-        viewModel = model;
         model.setContext(context);
+        viewModel = model;
       },
     );
   }
@@ -30,8 +35,7 @@ class LoginView extends StatelessWidget {
 
   Widget get textNumber {
     return Observer(
-        builder: (context) =>
-            Text('Login View ${viewModel!.number.toString()}'));
+        builder: (_) => Text('Login View ${viewModel.number.toString()}'));
   }
 }
 /**
