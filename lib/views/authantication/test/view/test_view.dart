@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../core/base/view/base_view.dart';
-import '../viewmodel/login_view_model.dart';
+import '../viewmodel/test_view_model.dart';
 
 /// view oluşturum baze view sarmala
-class LoginView extends StatefulWidget {
+class TestView extends StatefulWidget {
   @override
-  _LoginViewState createState() => _LoginViewState();
+  _TestViewState createState() => _TestViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  late LoginViewModel viewModel;
+class _TestViewState extends State<TestView> {
+  late TestViewModel viewModel;
 
   Widget get floatingActionButtonIncrement {
     return FloatingActionButton(onPressed: () => viewModel.incerementNumber());
@@ -22,8 +22,8 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<LoginViewModel>(
-      viewModel: LoginViewModel(),
+    return BaseView<TestViewModel>(
+      viewModel: TestViewModel(),
       onPageBuilder: (context, value) => scafooldBody,
       onModelReady: (model) {
         model.setContext(context);

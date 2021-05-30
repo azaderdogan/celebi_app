@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:celebi_app/core/base/model/base_error.dart';
 import 'package:celebi_app/core/base/model/base_model.dart';
-import 'package:celebi_app/core/constants/app/app_constants.dart';
+import 'package:celebi_app/core/constants/app/application_constants.dart';
 import 'package:celebi_app/core/constants/enums/local_keys_enum.dart';
 import 'package:celebi_app/core/init/cache/locale_manager.dart';
 import 'package:dio/dio.dart';
@@ -15,7 +15,7 @@ class NetworkManager {
   }
 
   NetworkManager._init() {
-    final baseOptions = BaseOptions(baseUrl: AppConstants.BASE_URL, headers: {
+    final baseOptions = BaseOptions(baseUrl: ApplicationConstants.BASE_URL, headers: {
       'Authorizaiton':
           'Bearer ${LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)}'
     });
