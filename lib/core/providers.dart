@@ -1,9 +1,9 @@
-import 'package:celebi_app/core/locators.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 import 'init/navigation/navigation_service.dart';
 import 'init/notifier/theme_notifier.dart';
+import 'locators.dart';
 
 class ProviderInjector {
   static ProviderInjector? _instance;

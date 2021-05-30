@@ -1,15 +1,13 @@
-import 'package:celebi_app/core/constants/app/application_constants.dart';
-import 'package:celebi_app/core/init/theme/light/light_theme_interface.dart';
-import 'package:celebi_app/core/init/theme/panache_theme/theme.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/app/application_constants.dart';
 import 'app_theme.dart';
+import 'light/light_theme_interface.dart';
+import 'panache_theme/theme.dart';
 
 class AppThemeLight extends AppTheme with ILightTheme {
-  ThemeData get themeData => redTheme;
-
   // ThemeData get theme => redTheme;
-  @override
+
   ThemeData get theme => ThemeData(
         fontFamily: ApplicationConstants.FONT_FAMILY,
         colorScheme: _appColorScheme,
@@ -39,6 +37,8 @@ class AppThemeLight extends AppTheme with ILightTheme {
             ),
         tabBarTheme: tabBarTheme,
       );
+
+  ThemeData get themeData => redTheme;
 
   TabBarTheme get tabBarTheme {
     return TabBarTheme(

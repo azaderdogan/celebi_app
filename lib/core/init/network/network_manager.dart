@@ -1,11 +1,9 @@
-import 'dart:io';
 
-import 'package:celebi_app/core/base/model/base_error.dart';
-import 'package:celebi_app/core/base/model/base_model.dart';
-import 'package:celebi_app/core/constants/app/application_constants.dart';
-import 'package:celebi_app/core/constants/enums/local_keys_enum.dart';
-import 'package:celebi_app/core/init/cache/locale_manager.dart';
 import 'package:dio/dio.dart';
+
+import '../../constants/app/application_constants.dart';
+import '../../constants/enums/local_keys_enum.dart';
+import '../cache/locale_manager.dart';
 
 class NetworkManager {
   static NetworkManager? _instance;

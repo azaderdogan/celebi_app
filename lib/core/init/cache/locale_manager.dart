@@ -1,4 +1,4 @@
-import 'package:celebi_app/core/constants/enums/local_keys_enum.dart';
+import '../../constants/enums/local_keys_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /**
