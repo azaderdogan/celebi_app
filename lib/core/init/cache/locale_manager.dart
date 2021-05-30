@@ -40,3 +40,4 @@ class LocaleManager {
   bool getBoolValue(PreferencesKeys key) =>
       _preferences!.getBool(key.toString()) ?? false;
 }
+
