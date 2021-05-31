@@ -1,7 +1,8 @@
-import 'package:celebi_app/core/base/view/base_view.dart';
-import 'package:celebi_app/core/extension/context_extension.dart';
-import 'package:celebi_app/views/authantication/login/viewmodel/login_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/base/view/base_view.dart';
+import '../../../../core/extension/context_extension.dart';
+import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
   late LoginViewModel viewModel;
@@ -28,12 +29,15 @@ class LoginView extends StatelessWidget {
             )
           ],
         ),
+        floatingActionButton: MaterialButton(
+          onPressed: () {},
+        ),
       );
 
   Text buildText(BuildContext context) {
     return Text(
       'Merhaba app ',
       style: context.textTheme.headline6,
-    ); 
+    );
   }
 }

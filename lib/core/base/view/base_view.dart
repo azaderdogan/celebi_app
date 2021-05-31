@@ -4,8 +4,6 @@ import 'package:mobx/mobx.dart';
 
 import '../../logger.dart';
 
-
-
 class BaseView<T extends Store> extends StatefulWidget {
   final Widget Function(BuildContext context, T value) onPageBuilder;
   final T viewModel;

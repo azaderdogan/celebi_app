@@ -1,4 +1,4 @@
-import 'package:celebi_app/core/base/model/base_model.dart';
+import 'base_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'test_model.g.dart';

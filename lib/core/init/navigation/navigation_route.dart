@@ -1,9 +1,9 @@
-import 'package:celebi_app/views/authantication/login/view/login.dart';
-
-import '../../constants/navigation/navigation_constants.dart';
-import '../../widgets/card/not_found_navigation_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../views/authantication/login/view/login.dart';
+import '../../constants/navigation/navigation_constants.dart';
+import '../../widgets/card/not_found_navigation_widget.dart';
 
 class NavigationRoute {
   static NavigationRoute _instance = NavigationRoute._init();

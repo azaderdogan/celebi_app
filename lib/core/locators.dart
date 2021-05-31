@@ -1,10 +1,10 @@
-import 'package:celebi_app/core/init/cache/locale_manager.dart';
-import 'package:celebi_app/core/init/lang/language_manager.dart';
-import 'package:celebi_app/core/init/navigation/navigation_service.dart';
-import 'package:celebi_app/core/init/theme/app_theme_light.dart';
-import '../core/logger.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+
+import '../core/logger.dart';
+import 'init/lang/language_manager.dart';
+import 'init/navigation/navigation_service.dart';
+import 'init/theme/app_theme_light.dart';
 
 GetIt locator = GetIt.instance;
 
