@@ -1,4 +1,9 @@
+import 'dart:io';
 
+import 'package:celebi_app/core/base/model/base_error.dart';
+import 'package:celebi_app/core/base/model/base_model.dart';
+import 'package:celebi_app/core/init/network/core_dio.dart';
+import 'package:celebi_app/core/init/network/core_dio_interface.dart';
 import 'package:dio/dio.dart';
 
 import '../../constants/app/application_constants.dart';
@@ -12,12 +17,15 @@ class NetworkManager {
     return _instance;
   }
 
+  ICoreDio? coreDio;
+
   NetworkManager._init() {
-    final baseOptions = BaseOptions(baseUrl: ApplicationConstants.BASE_URL, headers: {
+    final baseOptions =
+        BaseOptions(baseUrl: ApplicationConstants.BASE_URL, headers: {
       'Authorizaiton':
           'Bearer ${LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)}'
     });
-/* 
+    // coreDio = CoreDio(baseOptions);
     // Dio base olarak buradan handle edilebilrir.
 
     _dio = Dio(baseOptions);
@@ -36,7 +44,7 @@ class NetworkManager {
   }
   Dio? _dio;
 
-  void dioGet<T extends BaseModel>(String path, T model) async {
+  Future dioGet<T extends BaseModel>(String path, T model) async {
     final response = await _dio!.get(path);
     switch (response.statusCode) {
       case HttpStatus.ok:
@@ -52,6 +60,5 @@ class NetworkManager {
         break;
       default:
     }
-  } */
   }
 }

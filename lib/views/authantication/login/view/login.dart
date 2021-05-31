@@ -29,12 +29,15 @@ class LoginView extends StatelessWidget {
             )
           ],
         ),
+        floatingActionButton: MaterialButton(
+          onPressed: () {},
+        ),
       );
 
   Text buildText(BuildContext context) {
     return Text(
       'Merhaba app ',
       style: context.textTheme.headline6,
-    ); 
+    );
   }
 }

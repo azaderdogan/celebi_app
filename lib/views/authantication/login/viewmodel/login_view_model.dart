@@ -1,3 +1,5 @@
+import 'package:celebi_app/views/authantication/login/model/request_user_model.dart';
+import 'package:celebi_app/views/authantication/login/service/login_service.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../core/base/viewmodel/base_view_model.dart';
 import 'package:flutter/material.dart';
@@ -10,4 +12,10 @@ abstract class _LoginViewModelBase extends BaseViewModel with Store {
   void setContext(BuildContext context) => this.context = context;
   @override
   void init() {}
+  LoginService loginService = LoginService();
+
+  void checkLogin(String email, String password) {
+    UserRequestModel userRequestModel = UserRequestModel();
+    loginService.loginPost(userRequestModel);
+  }
 }
