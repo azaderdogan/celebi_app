@@ -1,6 +1,7 @@
-import 'package:celebi_app/core/base/view/base_view.dart';
-import 'package:celebi_app/views/authantication/onboard/viewmodel/onboard_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/base/view/base_view.dart';
+import '../viewmodel/onboard_view_model.dart';
 
 class Onboard extends StatelessWidget {
   late OnboardViewModel onboardViewModel;

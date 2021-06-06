@@ -1,8 +1,9 @@
+import 'package:celebi_app/core/init/network/core_dio_interface.dart';
+import 'package:celebi_app/core/init/network/network_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 import '../../logger.dart';
-
 
 abstract class BaseViewModel {
   String? _title;
@@ -10,6 +11,7 @@ abstract class BaseViewModel {
   Logger? log;
   bool? _isDisposed = false;
   BuildContext? context;
+  ICoreDio? coreDio = NetworkManager.instance!.coreDio;
   BaseViewModel({
     bool busy = false,
     String? title,

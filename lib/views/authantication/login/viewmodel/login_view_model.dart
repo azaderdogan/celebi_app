@@ -1,5 +1,5 @@
-import 'package:celebi_app/views/authantication/login/model/request_user_model.dart';
-import 'package:celebi_app/views/authantication/login/service/login_service.dart';
+import '../model/request_user_model.dart';
+import '../service/login_service.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../core/base/viewmodel/base_view_model.dart';
 import 'package:flutter/material.dart';

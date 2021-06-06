@@ -1,3 +1,5 @@
+import 'package:celebi_app/core/base/model/test_model.dart';
+import 'package:celebi_app/core/constants/enums/http_request_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
@@ -19,9 +21,10 @@ abstract class _TestViewModelBase extends BaseViewModel with Store {
   void init() {}
   @observable
   int number = 0;
-
+  @observable
+  bool isLoading = false;
   // hesaplanan değer @computed
-  @action
+  @action 
   void incerementNumber() {
     number++;
   }
@@ -30,5 +33,17 @@ abstract class _TestViewModelBase extends BaseViewModel with Store {
   void changeTheme() {
     Provider.of<ThemeNotifier>(context!, listen: false)
         .changeTheme(AppThemes.DARK);
+  }
+
+  Future<void> getSampleRequest() async {
+    isLoading = true;
+    final response = await coreDio!.send<List<TestModel>, TestModel>('x',
+        type: HttpTypes.GET, parseModel: TestModel());
+    if (response.data is List<TestModel>) {
+      // print True
+    } else {
+      response.error;
+    }
+    isLoading = false;
   }
 }
