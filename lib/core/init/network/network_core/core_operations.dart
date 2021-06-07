@@ -1,5 +1,5 @@
 part of '../core_dio.dart';
-
+// part of  ile sadece core dio haberleşmesini sağladık
 
 extension _CoreDioOperations on CoreDio {
   R? _responseParser<R, T>(BaseModel model, dynamic data) {

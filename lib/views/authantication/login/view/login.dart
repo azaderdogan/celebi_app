@@ -20,12 +20,15 @@ class LoginView extends StatelessWidget {
   }
 
   Scaffold buildScaffold(BuildContext context) => Scaffold(
-        body: ListView(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              color: context.colors.background,
-              height: context.width,
-              child: buildText(context),
+            TextField(
+              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
+            ),
+            MaterialButton(
+              child: Text('data'),
+              onPressed: () {},
             )
           ],
         ),

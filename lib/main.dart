@@ -2,6 +2,7 @@
 import 'package:celebi_app/core/constants/app/application_constants.dart';
 import 'package:celebi_app/core/init/cache/locale_manager.dart';
 import 'package:celebi_app/core/locators.dart';
+import 'package:celebi_app/views/authantication/login/view/login.dart';
 import 'package:celebi_app/views/authantication/test/view/test_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       theme: Provider.of<ThemeNotifier>(context, listen: false).currentTheme,
-      home: TestView(),
+      home: LoginView(),
     );
   }
 }
