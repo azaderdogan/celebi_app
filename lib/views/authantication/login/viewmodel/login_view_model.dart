@@ -7,7 +7,7 @@ part 'login_view_model.g.dart';
 
 class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;
 
-abstract class _LoginViewModelBase extends BaseViewModel with Store {
+abstract class _LoginViewModelBase with Store, BaseViewModel {
   @override
   void setContext(BuildContext context) => this.context = context;
   @override

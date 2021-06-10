@@ -1,11 +1,11 @@
-import 'package:celebi_app/core/base/model/test_model.dart';
-import 'package:celebi_app/core/constants/enums/http_request_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/base/model/test_model.dart';
 import '../../../../core/base/viewmodel/base_view_model.dart';
 import '../../../../core/constants/enums/app_theme_enum.dart';
+import '../../../../core/constants/enums/http_request_enum.dart';
 import '../../../../core/init/notifier/theme_notifier.dart';
 
 part 'test_view_model.g.dart';

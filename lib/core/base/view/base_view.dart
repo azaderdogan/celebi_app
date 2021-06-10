@@ -5,7 +5,7 @@ import 'package:mobx/mobx.dart';
 import '../../logger.dart';
 
 class BaseView<T extends Store> extends StatefulWidget {
-  final Widget Function(BuildContext context, T value) onPageBuilder;
+  final Widget Function(BuildContext context, T viewModel) onPageBuilder;
   final T viewModel;
   final Function(T model) onModelReady;
   final VoidCallback? onDispose;
@@ -28,7 +28,6 @@ class _BaseViewState<T extends Store> extends State<BaseView<T>> {
   @override
   void initState() {
     super.initState();
-    widget.log!.i('init state worked');
     model = widget.viewModel;
     widget.onModelReady(model);
   }

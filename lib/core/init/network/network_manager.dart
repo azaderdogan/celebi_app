@@ -1,4 +1,4 @@
-import 'package:celebi_app/core/constants/enums/local_keys_enum.dart';
+import '../../constants/enums/local_keys_enum.dart';
 import 'package:dio/dio.dart';
 import '../cache/locale_manager.dart';
 import 'core_dio.dart';

@@ -5,42 +5,16 @@ import '../../../../core/extension/context_extension.dart';
 import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
-  late LoginViewModel viewModel;
-
   @override
   Widget build(BuildContext context) {
     return BaseView<LoginViewModel>(
       viewModel: LoginViewModel(),
-      onPageBuilder: (context, value) => buildScaffold(context),
+      onPageBuilder: (BuildContext context, LoginViewModel viewModel) =>
+          Scaffold(),
       onModelReady: (model) {
         model.setContext(context);
-        viewModel = model;
+        model.init();
       },
-    );
-  }
-
-  Scaffold buildScaffold(BuildContext context) => Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
-            ),
-            MaterialButton(
-              child: Text('data'),
-              onPressed: () {},
-            )
-          ],
-        ),
-        floatingActionButton: MaterialButton(
-          onPressed: () {},
-        ),
-      );
-
-  Text buildText(BuildContext context) {
-    return Text(
-      'Merhaba app ',
-      style: context.textTheme.headline6,
     );
   }
 }
