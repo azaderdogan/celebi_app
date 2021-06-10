@@ -4,7 +4,6 @@ import 'INavigationService.dart';
 
 class NavigationService implements INavigationService {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-  final removeAllOldRoutes = (Route<dynamic> route) => false;
 
   @override
   Future<void> navigateToPage({required String path, Object? data}) async {
@@ -17,4 +16,6 @@ class NavigationService implements INavigationService {
     await navigatorKey.currentState!
         .pushNamedAndRemoveUntil(path, removeAllOldRoutes, arguments: data);
   }
+
+  final removeAllOldRoutes = (Route<dynamic> route) => false;
 }

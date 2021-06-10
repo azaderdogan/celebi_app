@@ -24,6 +24,21 @@ mixin _$TestViewModel on _TestViewModelBase, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: '_TestViewModelBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$_TestViewModelBaseActionController =
       ActionController(name: '_TestViewModelBase');
 
@@ -41,7 +56,8 @@ mixin _$TestViewModel on _TestViewModelBase, Store {
   @override
   String toString() {
     return '''
-number: ${number}
+number: ${number},
+isLoading: ${isLoading}
     ''';
   }
 }

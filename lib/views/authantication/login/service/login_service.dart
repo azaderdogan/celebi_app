@@ -1,5 +1,6 @@
-import 'package:celebi_app/views/authantication/login/model/request_user_model.dart';
 import 'package:dio/dio.dart';
+
+import '../model/request_user_model.dart';
 
 class LoginService {
   Dio dio = Dio();

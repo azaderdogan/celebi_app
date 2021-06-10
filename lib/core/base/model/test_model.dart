@@ -20,7 +20,7 @@ class TestModel extends BaseModel {
   }
 
   @override
-  fromJson(Map<String, Object> json) {
+  fromJson(Map<dynamic, dynamic> json) {
     fromJson(json);
   }
 }

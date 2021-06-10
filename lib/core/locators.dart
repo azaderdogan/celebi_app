@@ -1,3 +1,4 @@
+import 'package:celebi_app/views/_product/_constants/svg_image_path.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
@@ -18,5 +19,6 @@ class LocatorInjector {
     locator.registerSingleton<NavigationService>(NavigationService());
     _log.d('Initializing AppTheme Light ');
     locator.registerLazySingleton<AppThemeLight>(() => AppThemeLight());
+    locator.registerLazySingleton<SVGImagePaths>(() => SVGImagePaths());
   }
 }

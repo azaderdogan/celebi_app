@@ -27,7 +27,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
                 OutlineInputBorder(borderSide: BorderSide(width: 0.3)),
             // border: OutlineInputBorder(borderSide: BorderSide(width: 0.3)),
             focusedBorder: OutlineInputBorder()),
-        scaffoldBackgroundColor: Color(0xfff1f3f8),
+        scaffoldBackgroundColor: Color(0xffE5E5E5),
         floatingActionButtonTheme:
             ThemeData.light().floatingActionButtonTheme.copyWith(),
         buttonTheme: ThemeData.light().buttonTheme.copyWith(
