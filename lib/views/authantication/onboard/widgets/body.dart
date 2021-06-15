@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(flex: 6, child: OnBoardPageView(viewModel: viewModel)),
+        Expanded(flex: 8, child: OnBoardPageView(viewModel: viewModel)),
         Expanded(flex: 1, child: OnBoardIndicator(viewModel: viewModel)),
         Expanded(
             flex: 2,

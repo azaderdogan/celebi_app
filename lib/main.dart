@@ -1,4 +1,5 @@
 //
+import 'package:celebi_app/core/extension/context_extension.dart';
 import 'package:celebi_app/views/authantication/onboard/view/onboard_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,7 @@ Future<void> _init() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: NavigationRoute.instance.generateRoute,
