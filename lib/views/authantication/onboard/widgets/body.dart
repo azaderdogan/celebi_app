@@ -1,3 +1,7 @@
+import 'package:celebi_app/core/widgets/text/locale_text.dart';
+import 'package:celebi_app/views/_product/_widgets/buttons/normal_button.dart';
+import 'package:celebi_app/views/authantication/onboard/widgets/on_board_indicator.dart';
+import 'package:celebi_app/views/authantication/onboard/widgets/on_board_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,65 +19,23 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Expanded(flex: 6, child: OnBoardPageView(viewModel: viewModel)),
+        Expanded(flex: 1, child: OnBoardIndicator(viewModel: viewModel)),
         Expanded(
-          flex: 4,
-          child: PageView.builder(
-            itemCount: viewModel.onBoardItems.length,
-            onPageChanged: (value) => viewModel.onPageChanged(value),
-            itemBuilder: (context, index) => Container(
-              color: context.theme.scaffoldBackgroundColor,
-              child: Column(
-                children: [
-                  Expanded(
-                      flex: 4,
-                      child: SvgPicture.asset(
-                          viewModel.onBoardItems[index].imageUrl!)),
-                  Expanded(
-                    flex: 2,
-                    child: Observer(builder: (_) {
-                      return RichText(
-                        text: TextSpan(children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                '${viewModel.onBoardItems[viewModel.currentPageIndex].title}\n',
-                            style: context.textTheme.headline2,
-                          ),
-                          TextSpan(
-                            text: viewModel
-                                .onBoardItems[viewModel.currentPageIndex]
-                                .content,
-                            style: context.textTheme.bodyText1,
-                          ),
-                        ]),
-                      );
-                    }),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: ListView.builder(
-            itemCount: viewModel.onBoardItems.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Padding(
-              padding: context.paddingLow,
+            flex: 2,
+            child: Center(
               child: Observer(builder: (_) {
-                return CircleAvatar(
-                  radius: viewModel.currentPageIndex == index ? 10 : 5,
-                  child: AnimatedOpacity(
-                    opacity: viewModel.currentPageIndex == index ? 1 : 0,
-                    duration: context.lowDuration,
-                    child: Text(index.toString()),
-                  ),
-                );
+                return Visibility(
+                    visible: viewModel.isLoading,
+                    child: CircularProgressIndicator());
               }),
-            ),
-          ),
+            )),
+        SizedTextButton(
+          text: 'Next',
+          onPressed: () => viewModel.completeOnBoard(),
         )
       ],
     );

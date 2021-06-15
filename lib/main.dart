@@ -1,7 +1,8 @@
 //
-import 'package:celebi_app/views/authantication/onboard/view/onboard.dart';
+import 'package:celebi_app/views/authantication/onboard/view/onboard_view.dart';
+import 'package:celebi_app/views/authantication/test/view/test_view.dart';
 
-import 'views/authantication/login/view/login.dart';
+import 'views/authantication/login/view/login_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,8 +44,8 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
-      theme: Provider.of<ThemeNotifier>(context, listen: false).currentTheme,
-      home: OnBoard(),
+      theme: context.watch<ThemeNotifier>().currentTheme,
+      home: OnBoardView(),
     );
   }
 }

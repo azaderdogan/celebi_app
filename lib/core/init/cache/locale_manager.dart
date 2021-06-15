@@ -1,12 +1,10 @@
-import '../../constants/enums/local_keys_enum.dart';
+import '../../constants/enums/preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/**
- * Eğer auth manager gibi bir servis yazılacaksa 
- * Locale managerdan inherit edilir. ve providera bağlanılır.
- * 
- * abstract yapılabilir bence
- */
+/// Eğer auth manager gibi bir servis yazılacaksa 
+/// Locale managerdan inherit edilir. ve providera bağlanılır.
+/// 
+/// abstract yapılabilir bence
 class LocaleManager {
   static final LocaleManager _instance = LocaleManager._init();
 

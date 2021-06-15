@@ -1,3 +1,5 @@
+import 'package:celebi_app/core/constants/enums/preferences_keys.dart';
+import 'package:celebi_app/core/constants/navigation/navigation_constants.dart';
 import 'package:celebi_app/core/init/lang/locale_keys.g.dart';
 import 'package:celebi_app/core/locators.dart';
 import 'package:celebi_app/views/_product/_constants/svg_image_path.dart';
@@ -37,8 +39,24 @@ abstract class _OnboardViewModelBase with Store, BaseViewModel {
   @observable
   int currentPageIndex = 0;
 
+  @observable
+  bool isLoading = false;
+
   @action
   void onPageChanged(int value) {
     currentPageIndex = value;
+  }
+
+  @action
+  void changeLoading() {
+    isLoading = !isLoading;
+  }
+
+  Future<void> completeOnBoard() async {
+    changeLoading();
+    await localeManager.setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
+    changeLoading();
+    navigation.navigateToPageClear(path: NavigationConstants.LOGIN_VIEW);
+    
   }
 }

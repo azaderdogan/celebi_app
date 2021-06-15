@@ -4,7 +4,7 @@ import '../../../../core/base/view/base_view.dart';
 import '../viewmodel/onboard_view_model.dart';
 import '../widgets/body.dart';
 
-class OnBoard extends StatelessWidget {
+class OnBoardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<OnboardViewModel>(

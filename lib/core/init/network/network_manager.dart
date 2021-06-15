@@ -1,4 +1,4 @@
-import '../../constants/enums/local_keys_enum.dart';
+import '../../constants/enums/preferences_keys.dart';
 import 'package:dio/dio.dart';
 import '../cache/locale_manager.dart';
 import 'core_dio.dart';

@@ -11,7 +11,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
   ThemeData get theme => ThemeData(
         fontFamily: ApplicationConstants.FONT_FAMILY,
         colorScheme: _appColorScheme,
-        textTheme: textTheme(),
+        textTheme: textTheme,
         appBarTheme: ThemeData.light().appBarTheme.copyWith(
             brightness: Brightness.light,
             color: Colors.transparent,
@@ -50,7 +50,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
     );
   }
 
-  TextTheme textTheme() {
+  TextTheme get textTheme {
     return ThemeData.light().textTheme.copyWith(
         headline1: textThemeLight!.headline1,
         headline2: textThemeLight!.headline2,
