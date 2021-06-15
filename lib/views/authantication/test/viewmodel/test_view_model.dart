@@ -1,3 +1,4 @@
+import 'package:celebi_app/core/constants/enums/preferences_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
@@ -24,15 +25,14 @@ abstract class _TestViewModelBase extends BaseViewModel with Store {
   @observable
   bool isLoading = false;
   // hesaplanan değer @computed
-  @action 
+  @action
   void incerementNumber() {
     number++;
   }
 
 // tema değiştirme
   void changeTheme() {
-    Provider.of<ThemeNotifier>(context!, listen: false)
-        .changeTheme(AppThemes.DARK);
+    Provider.of<ThemeNotifier>(context!, listen: false).changeTheme();
   }
 
   Future<void> getSampleRequest() async {

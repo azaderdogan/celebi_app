@@ -1,8 +1,6 @@
+import 'package:celebi_app/core/base/view/base_view.dart';
+import 'package:celebi_app/views/authantication/login/viewmodel/login_view_model.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/base/view/base_view.dart';
-import '../../../../core/extension/context_extension.dart';
-import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
   @override
@@ -15,6 +13,7 @@ class LoginView extends StatelessWidget {
         model.setContext(context);
         model.init();
       },
+      onDispose: () {},
     );
   }
 }

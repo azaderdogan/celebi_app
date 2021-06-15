@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../views/authantication/login/view/login.dart';
+import '../../../views/authantication/login/view/login_view.dart';
 import '../../constants/navigation/navigation_constants.dart';
 import '../../widgets/card/not_found_navigation_widget.dart';
 

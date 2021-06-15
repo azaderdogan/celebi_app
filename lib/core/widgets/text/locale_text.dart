@@ -4,10 +4,18 @@ import '.././../../core/extension/string_extension.dart';
 
 class LocaleText extends StatelessWidget {
   final String value;
+  TextStyle? textStyle;
 
-  const LocaleText({Key? key, required this.value}) : super(key: key);
+  LocaleText({
+    Key? key,
+    required this.value,
+    this.textStyle,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Text(value.locale);
+    return Text(
+      value.locale,
+      style: textStyle ?? null,
+    );
   }
 }
