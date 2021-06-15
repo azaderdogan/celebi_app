@@ -1,41 +1,43 @@
-import '../../constants/enums/preferences_keys.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
+import 'package:logger/logger.dart';
 
-/// Eğer auth manager gibi bir servis yazılacaksa 
-/// Locale managerdan inherit edilir. ve providera bağlanılır.
-/// 
-/// abstract yapılabilir bence
+import '../../constants/enums/preferences_keys.dart';
+import '../../logger.dart';
+
+/**
+ * Eğer auth manager gibi bir servis yazılacaksa 
+ * Locale managerdan inherit edilir. ve providera bağlanılır.
+ * 
+ * abstract yapılabilir bence
+ */
 class LocaleManager {
   static final LocaleManager _instance = LocaleManager._init();
-
-  SharedPreferences? _preferences;
+  static Logger _log = getLogger('LocaleManager');
+  Box? box;
   static LocaleManager get instance => _instance;
 
-  LocaleManager._init() {
-    SharedPreferences.getInstance().then((value) {
-      _preferences = value;
-    });
-  }
+  LocaleManager._init() {}
   static Future preferencesInit() async {
-    instance._preferences ??= await SharedPreferences.getInstance();
+    _log.d('Init Setting box');
+    instance.box ??= await Hive.openBox('settings');
   }
 
   Future<void> clearAll() async {
-    await _preferences!.clear();
+    await box!.clear();
+    _log.d('Clear all data in Settings box.');
   }
 
   Future<void> setStringValue(PreferencesKeys key, String value) async {
-    await _preferences!.setString(key.toString(), value);
+    await box!.put(key.toString(), value);
+    _log.d('set string value');
   }
 
   Future<void> setBoolValue(PreferencesKeys key, bool value) async {
-    await _preferences!.setBool(key.toString(), value);
+    await box!.put(key.toString(), value);
+    _log.d('set bool value');
   }
 
-  String getStringValue(PreferencesKeys key) =>
-      _preferences!.getString(key.toString()) ?? '';
+  String getStringValue(PreferencesKeys key) => box!.get(key.toString()) ?? '';
 
-  bool getBoolValue(PreferencesKeys key) =>
-      _preferences!.getBool(key.toString()) ?? false;
+  bool getBoolValue(PreferencesKeys key) => box!.get(key.toString()) ?? false;
 }
-

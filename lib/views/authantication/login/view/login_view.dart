@@ -8,12 +8,23 @@ class LoginView extends StatelessWidget {
     return BaseView<LoginViewModel>(
       viewModel: LoginViewModel(),
       onPageBuilder: (BuildContext context, LoginViewModel viewModel) =>
-          Scaffold(),
+          Scaffold(body: Body()),
       onModelReady: (model) {
         model.setContext(context);
         model.init();
       },
       onDispose: () {},
     );
+  }
+}
+
+class Body extends StatelessWidget {
+  const Body({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

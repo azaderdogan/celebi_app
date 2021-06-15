@@ -1,10 +1,8 @@
 //
 import 'package:celebi_app/views/authantication/onboard/view/onboard_view.dart';
-import 'package:celebi_app/views/authantication/test/view/test_view.dart';
-
-import 'views/authantication/login/view/login_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import 'core/constants/app/application_constants.dart';
@@ -15,12 +13,10 @@ import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/theme_notifier.dart';
 import 'core/locators.dart';
 import 'core/providers.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await LocatorInjector.setupLocator();
-  await LocaleManager.preferencesInit();
-  await EasyLocalization.ensureInitialized();
+  await _init();
 
   runApp(
     MultiProvider(
@@ -32,6 +28,15 @@ void main() async {
           path: ApplicationConstants.LANG_ASSET_PATH),
     ),
   );
+}
+
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await LocaleManager.preferencesInit();
+  await Hive.openBox('settings');
+  await LocatorInjector.setupLocator();
+  await EasyLocalization.ensureInitialized();
 }
 
 class MyApp extends StatelessWidget {
