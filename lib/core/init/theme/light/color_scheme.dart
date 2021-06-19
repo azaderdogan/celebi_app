@@ -9,9 +9,9 @@ class ColorSchemeLight {
 
   ColorSchemeLight._init();
 
-  final Color brown = Color(0xffa87e6f);
+  final Color yellow = Color(0xffFF9555);
   final Color green = Color(0xff7BC4B2);
-  final Color red = Color(0xffc10e0e);
+  final Color red = Color(0xffD90429);
   final Color white = Color(0xffffffff);
   final Color gray = Color(0xffa5a6ae);
   final Color lightGray = Color(0xfff7f7f7);

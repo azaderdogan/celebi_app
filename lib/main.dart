@@ -1,9 +1,9 @@
 //
-import 'package:celebi_app/core/extension/context_extension.dart';
 import 'package:celebi_app/views/authantication/onboard/view/onboard_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'core/constants/app/application_constants.dart';
@@ -14,7 +14,6 @@ import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/theme_notifier.dart';
 import 'core/locators.dart';
 import 'core/providers.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await _init();
@@ -43,7 +42,6 @@ Future<void> _init() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: NavigationRoute.instance.generateRoute,

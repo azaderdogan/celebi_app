@@ -1,3 +1,5 @@
+import 'package:celebi_app/core/constants/app/application_constants.dart';
+
 import '../../constants/enums/preferences_keys.dart';
 import 'package:dio/dio.dart';
 import '../cache/locale_manager.dart';
@@ -15,10 +17,11 @@ class NetworkManager {
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-        baseUrl: 'https://jsonplaceholder.typicode.com/',
-        headers: {
-          'val': LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
-        });
+      baseUrl: ApplicationConstants.BASE_URL,
+      headers: {
+        'val': LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
+      },
+    );
     // _dio = Dio(baseOptions);
 
     coreDio = CoreDio(baseOptions);
