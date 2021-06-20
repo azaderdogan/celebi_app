@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 
 const String FONT_FAMILY = "Poppins";
 
@@ -6,7 +6,7 @@ final ThemeData redTheme = ThemeData(
   fontFamily: FONT_FAMILY,
   primarySwatch: Colors.red,
   brightness: Brightness.light,
-  primaryColor: Color(0xffC20003), //xxx
+  primaryColor: Color(0xff7BC4B2), //xxx
   primaryColorBrightness: Brightness.dark,
   primaryColorLight: Color(0xffffcdd2),
   primaryColorDark: Color(0xffd32f2f),
@@ -60,8 +60,8 @@ final ThemeData redTheme = ThemeData(
     focusColor: Color(0x1f000000),
     hoverColor: Color(0x0a000000),
     colorScheme: ColorScheme(
-      primary: Color(0xfff44336),
-      primaryVariant: Color(0xffd32f2f),
+      primary: Color(0xff7BC4B2),
+      primaryVariant:Color(0xff7BC4B2),
       secondary: Color(0xffC20003), //xx
       secondaryVariant: Color(0xffd32f2f),
       surface: Color(0xffffffff),
@@ -427,3 +427,4 @@ final ThemeData redTheme = ThemeData(
     borderRadius: BorderRadius.all(Radius.circular(0.0)),
   )),
 );
+ */

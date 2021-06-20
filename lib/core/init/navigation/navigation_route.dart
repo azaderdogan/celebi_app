@@ -15,7 +15,7 @@ class NavigationRoute {
     switch (routeSettings.name) {
       case NavigationConstants.LOGIN_VIEW:
         return normalNavigate(LoginView());
-        break;
+
       default:
         return normalNavigate(NotFoundWidget());
     }

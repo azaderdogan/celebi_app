@@ -26,7 +26,7 @@ class OnBoardPageView extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              flex: 4,
+              flex: 3,
               child: SvgPicture.asset(viewModel.onBoardItems[index].imageUrl!)),
           Expanded(
             flex: 2,
@@ -34,7 +34,7 @@ class OnBoardPageView extends StatelessWidget {
               children: [
                 LocaleText(
                   value: viewModel.onBoardItems[index].title ?? "",
-                  textStyle: context.textTheme.headline1!
+                  textStyle: context.textTheme.headline5!
                       .copyWith(color: Colors.black),
                 ),
                 LocaleText(

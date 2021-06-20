@@ -17,7 +17,7 @@ class ThemeNotifier extends ChangeNotifier {
 
   void changeValue(AppThemes theme) {
     if (theme == AppThemes.LIGHT) {
-      _currentTheme = locator<AppThemeLight>().themeData;
+      _currentTheme = ThemeData.light();
     } else {
       _currentTheme = ThemeData.dark();
     }

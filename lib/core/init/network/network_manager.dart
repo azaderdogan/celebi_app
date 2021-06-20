@@ -1,6 +1,8 @@
-import '../../constants/enums/preferences_keys.dart';
+import 'dart:io';
+
 import 'package:dio/dio.dart';
-import '../cache/locale_manager.dart';
+
+import '../../constants/app/application_constants.dart';
 import 'core_dio.dart';
 import 'core_dio_interface.dart';
 
@@ -9,27 +11,23 @@ class NetworkManager {
   static NetworkManager? get instance {
     _instance ??= NetworkManager._init();
     return _instance!;
+    
   }
 
   ICoreDio? coreDio;
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-        baseUrl: 'https://jsonplaceholder.typicode.com/',
-        headers: {
-          'val': LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
-        });
-    // _dio = Dio(baseOptions);
+      baseUrl: Platform.isAndroid
+          ? ApplicationConstants.androidBaseUrl
+          : ApplicationConstants.iosBaseUrl,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    );
 
     coreDio = CoreDio(baseOptions);
 
-    // _dio.interceptors.add(InterceptorsWrapper(
-    //   onRequest: (options) {
-    //     options.path += "veli";
-    //   },
-    //   onError: (e) {
-    //     return BaseError(e.message);
-    //   },
-    // ));
   }
 }

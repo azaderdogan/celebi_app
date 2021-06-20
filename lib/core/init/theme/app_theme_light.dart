@@ -6,12 +6,12 @@ import 'light/light_theme_interface.dart';
 import 'panache_theme/theme.dart';
 
 class AppThemeLight extends AppTheme with ILightTheme {
-  // ThemeData get theme => redTheme;
-
-  ThemeData get theme => ThemeData(
+  @override
+  ThemeData get themeData => ThemeData(
         fontFamily: ApplicationConstants.FONT_FAMILY,
         colorScheme: _appColorScheme,
-        textTheme: textTheme,
+        backgroundColor: Color(0xffE5E5E5),
+        textTheme: textTheme(),
         appBarTheme: ThemeData.light().appBarTheme.copyWith(
             brightness: Brightness.light,
             color: Colors.transparent,
@@ -27,7 +27,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
                 OutlineInputBorder(borderSide: BorderSide(width: 0.3)),
             // border: OutlineInputBorder(borderSide: BorderSide(width: 0.3)),
             focusedBorder: OutlineInputBorder()),
-        scaffoldBackgroundColor: Color(0xffE5E5E5),
+        scaffoldBackgroundColor: Color(0xfff1f3f8),
         floatingActionButtonTheme:
             ThemeData.light().floatingActionButtonTheme.copyWith(),
         buttonTheme: ThemeData.light().buttonTheme.copyWith(
@@ -37,8 +37,6 @@ class AppThemeLight extends AppTheme with ILightTheme {
             ),
         tabBarTheme: tabBarTheme,
       );
-
-  ThemeData get themeData => redTheme;
 
   TabBarTheme get tabBarTheme {
     return TabBarTheme(
@@ -50,27 +48,31 @@ class AppThemeLight extends AppTheme with ILightTheme {
     );
   }
 
-  TextTheme get textTheme {
+  TextTheme textTheme() {
     return ThemeData.light().textTheme.copyWith(
         headline1: textThemeLight!.headline1,
         headline2: textThemeLight!.headline2,
+        headline3: textThemeLight!.headline3,
+        headline4: textThemeLight!.headline4,
+        headline5: textThemeLight!.headline5,
+        
         overline: textThemeLight!.headline3);
   }
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-        primary: colorSchemeLight!.black,
-        primaryVariant: Colors.white, //xx
-        secondary: Colors.green,
-        secondaryVariant: colorSchemeLight!.azure,
+        primary: Color(0xff7BC4B2),
+        primaryVariant: Color(0xffB6E7DA), //xx
+        secondary: Color(0xffF08A5D),
+        secondaryVariant: Color(0xffE28989),
         surface: Colors.blue, //xx
-        background: Color(0xfff6f9fc), //xx
-        error: Colors.red[900]!,
+        background: Color(0xffE5E5E5), //xx
+        error: Color(0xffEB5757),
         onPrimary: Colors.greenAccent,
         onSecondary: Colors.black, //x
         onSurface: Colors.white30,
-        onBackground: Colors.black12,
-        onError: Color(0xFFF9B916), //xx
+        onBackground: Color(0xffFAFAFA),
+        onError: Color(0xffFF9555), //xx
         brightness: Brightness.light);
   }
 }
