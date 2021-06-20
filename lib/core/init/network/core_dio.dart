@@ -8,7 +8,7 @@ import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
 import '../../extension/network_extension.dart';
 import 'core_dio_interface.dart';
-import 'response_model_interface.dart';
+import 'i_response_model.dart';
 
 part './network_core/core_operations.dart';
 
@@ -18,8 +18,10 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
 
   CoreDio(this.options) {
     options = options;
-    interceptors.add(
-        InterceptorsWrapper(onError: (e, handler) => BaseError(e.message)));
+    interceptors.add(InterceptorsWrapper(
+      onError: (e, handler) => BaseError(e.message),
+      onResponse: (e, handler) => ResponseModel(),
+    ));
     httpClientAdapter = DefaultHttpClientAdapter();
   }
 

@@ -1,10 +1,12 @@
 import 'package:celebi_app/core/base/viewmodel/base_view_model.dart';
 import 'package:celebi_app/core/constants/enums/preferences_keys.dart';
+import 'package:celebi_app/core/init/network/network_manager.dart';
 import 'package:celebi_app/core/init/network/vexana_manager.dart';
 import 'package:celebi_app/core/locators.dart';
 import 'package:celebi_app/views/authantication/login/model/login_request_model.dart';
 import 'package:celebi_app/views/authantication/login/service/i_login_service.dart';
 import 'package:celebi_app/views/authantication/login/service/login_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'login_view_model.g.dart';
@@ -14,13 +16,25 @@ class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;
 abstract class _LoginViewModelBase with Store, BaseViewModel {
   GlobalKey<FormState> formState = GlobalKey();
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
-  ILoginService? loginService;
+  late ILoginService loginService;
 
   TextEditingController? emailController;
   TextEditingController? passwordController;
   @override
   void init() {
-    loginService = LoginService(locator<VexanaManager>().networkManager);
+    loginService = LoginService(
+      locator<VexanaManager>().networkManager,
+      Dio(
+        BaseOptions(
+          baseUrl: 'http://10.0.2.2:8000/',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+        ),
+      ),
+       NetworkManager.instance!.coreDio,
+    );
     emailController = TextEditingController();
     passwordController = TextEditingController();
   }
@@ -36,19 +50,21 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
 
   @action
   Future<void> fetchLoginService() async {
-    changeLoading();
+    isLoadingChange();
     if (formState.currentState!.validate()) {
-      final response = await loginService!.fethUserControl(LoginRequestModel(
+      final response = await loginService.fetchUserControl(LoginRequestModel(
           email: emailController!.text, password: passwordController!.text));
 
       if (response != null) {
-        print(response.token!);
-        scaffoldState.currentState!
-            .showSnackBar(SnackBar(content: Text(response.token!)));
+        if (scaffoldState.currentState != null) {
+          scaffoldState.currentState!.showSnackBar(
+              SnackBar(content: Text(response.tokens.toString())));
+        }
         await localeManager.setStringValue(
-            PreferencesKeys.TOKEN, response.token!);
+            PreferencesKeys.TOKEN, response.tokens.toString());
       }
     }
+    isLoadingChange();
   }
 
   @action
@@ -57,7 +73,7 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   }
 
   @action
-  void changeLoading() {
+  void isLoadingChange() {
     isLaoding = !isLaoding;
   }
 }

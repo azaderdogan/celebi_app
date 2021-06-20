@@ -1,6 +1,6 @@
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
-import 'response_model_interface.dart';
+import 'i_response_model.dart';
 
 abstract class ICoreDio {
   // R bizim almak istediğimiz cevap modeli

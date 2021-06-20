@@ -62,11 +62,11 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
   }
 
   @override
-  void changeLoading() {
+  void isLoadingChange() {
     final _$actionInfo = _$_LoginViewModelBaseActionController.startAction(
-        name: '_LoginViewModelBase.changeLoading');
+        name: '_LoginViewModelBase.isLoadingChange');
     try {
-      return super.changeLoading();
+      return super.isLoadingChange();
     } finally {
       _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
     }

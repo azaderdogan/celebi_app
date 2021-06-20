@@ -1,8 +1,8 @@
-import 'package:celebi_app/core/constants/app/application_constants.dart';
+import 'dart:io';
 
-import '../../constants/enums/preferences_keys.dart';
 import 'package:dio/dio.dart';
-import '../cache/locale_manager.dart';
+
+import '../../constants/app/application_constants.dart';
 import 'core_dio.dart';
 import 'core_dio_interface.dart';
 
@@ -11,28 +11,23 @@ class NetworkManager {
   static NetworkManager? get instance {
     _instance ??= NetworkManager._init();
     return _instance!;
+    
   }
 
   ICoreDio? coreDio;
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: ApplicationConstants.BASE_URL,
+      baseUrl: Platform.isAndroid
+          ? ApplicationConstants.androidBaseUrl
+          : ApplicationConstants.iosBaseUrl,
       headers: {
-        'val': LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
       },
     );
-    // _dio = Dio(baseOptions);
 
     coreDio = CoreDio(baseOptions);
 
-    // _dio.interceptors.add(InterceptorsWrapper(
-    //   onRequest: (options) {
-    //     options.path += "veli";
-    //   },
-    //   onError: (e) {
-    //     return BaseError(e.message);
-    //   },
-    // ));
   }
 }
