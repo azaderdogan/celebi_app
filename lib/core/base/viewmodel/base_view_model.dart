@@ -15,7 +15,7 @@ abstract class BaseViewModel {
   LocaleManager localeManager = LocaleManager.instance;
   NavigationService navigation = locator<NavigationService>();
   Logger? log;
-
+  GlobalKey<ScaffoldState>? scaffoldState;
   bool? _busy;
   bool? _isDisposed = false;
   String? _title;
