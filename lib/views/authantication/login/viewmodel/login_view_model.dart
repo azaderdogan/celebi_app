@@ -15,13 +15,14 @@ class LoginViewModel = _LoginViewModelBase with _$LoginViewModel;
 
 abstract class _LoginViewModelBase with Store, BaseViewModel {
   GlobalKey<FormState> formState = GlobalKey();
-  GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
+
   late ILoginService loginService;
 
   TextEditingController? emailController;
   TextEditingController? passwordController;
   @override
   void init() {
+    scaffoldState = GlobalKey();
     loginService = LoginService(
       locator<VexanaManager>().networkManager,
       Dio(
@@ -33,7 +34,7 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
           },
         ),
       ),
-       NetworkManager.instance!.coreDio,
+      NetworkManager.instance!.coreDio,
     );
     emailController = TextEditingController();
     passwordController = TextEditingController();
@@ -56,8 +57,8 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
           email: emailController!.text, password: passwordController!.text));
 
       if (response != null) {
-        if (scaffoldState.currentState != null) {
-          scaffoldState.currentState!.showSnackBar(
+        if (scaffoldState!.currentState != null) {
+          scaffoldState!.currentState!.showSnackBar(
               SnackBar(content: Text(response.tokens.toString())));
         }
         await localeManager.setStringValue(

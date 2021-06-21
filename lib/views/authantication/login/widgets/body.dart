@@ -16,27 +16,30 @@ class Body extends StatelessWidget {
   final LoginViewModel viewModel;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: viewModel.formState,
-      autovalidateMode: AutovalidateMode.always,
-      child: Column(
-        children: [
-          Spacer(
-            flex: 2,
-          ),
-          buildEmailField(context),
-          // şifrenin görünürlüğü için obersvera alındı
-          Spacer(),
-          buildPasswordField(context),
+    return Container(
+      width: double.infinity,
+      child: Form(
+        key: viewModel.formState,
+        autovalidateMode: AutovalidateMode.always,
+        child: Column(
+          children: [
+            Spacer(
+              flex: 2,
+            ),
+            buildEmailField(context),
+            // şifrenin görünürlüğü için obersvera alındı
+            SizedBox(height: context.normalValue),
+            buildPasswordField(context),
 
-          buildForgetPassword(),
-          Spacer(
-            flex: 2,
-          ),
-          buildLoginButton(),
-          Spacer(),
-          buildSingUpText()
-        ],
+            buildForgetPassword(),
+            Spacer(
+              flex: 2,
+            ),
+            buildLoginButton(),
+            Spacer(),
+            buildSingUpText()
+          ],
+        ),
       ),
     );
   }
