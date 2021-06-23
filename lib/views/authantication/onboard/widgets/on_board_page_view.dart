@@ -25,21 +25,32 @@ class OnBoardPageView extends StatelessWidget {
     return Container(
       child: Column(
         children: [
+          //Resim
           Expanded(
-              flex: 3,
+              flex: 4,
               child: SvgPicture.asset(viewModel.onBoardItems[index].imageUrl!)),
+          // Boşluk
+          SizedBox(height: context.height * 0.03),
+          // Yazı
           Expanded(
             flex: 2,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 LocaleText(
                   value: viewModel.onBoardItems[index].title ?? "",
                   textStyle: context.textTheme.headline5!
                       .copyWith(color: Colors.black),
                 ),
-                LocaleText(
-                  value: viewModel.onBoardItems[index].content ?? "",
-                  textStyle: TextStyle(),
+                Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    child: LocaleText(
+                      value: viewModel.onBoardItems[index].content ?? "",
+                      textStyle: TextStyle(),
+                    ),
+                  ),
                 )
               ],
             ),

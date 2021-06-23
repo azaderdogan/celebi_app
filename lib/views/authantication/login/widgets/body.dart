@@ -55,10 +55,12 @@ class Body extends StatelessWidget {
   }
 
   Widget buildLoginButton() {
-    return Observer(builder: (_) {
+   
       return SizedTextButton(
-          text: "Login", onPressed: () => viewModel.fetchLoginService());
-    });
+          text: "Login",
+          color: Colors.red,
+          onPressed: () => viewModel.fetchLoginService());
+   
   }
 
   Align buildForgetPassword() {

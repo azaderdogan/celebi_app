@@ -15,6 +15,7 @@ class OnBoardIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemCount: viewModel.onBoardItems.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => Padding(
