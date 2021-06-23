@@ -18,26 +18,44 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(flex: 8, child: OnBoardPageView(viewModel: viewModel)),
-        Expanded(flex: 1, child: OnBoardIndicator(viewModel: viewModel)),
-        Expanded(
-            flex: 2,
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Sayfanın yukarısında farklı ekranlara uyumlu bir boşluk
+          Expanded(flex: 2, child: Container()),
+          // Gerkli resimlerin ve resim altı yazının bulunduğu bölüm
+          Expanded(flex: 8, child: OnBoardPageView(viewModel: viewModel)),
+          // Kaçıncı sayfada olduğumuzu gösteren belirteçler
+          Expanded(
+            flex: 1,
             child: Center(
+              child: OnBoardIndicator(viewModel: viewModel),
+            ),
+          ),
+          //Yükleniyor Belirteçi
+          Expanded(
+              flex: 1,
               child: Observer(builder: (_) {
                 return Visibility(
                     visible: viewModel.isLoading,
                     child: CircularProgressIndicator());
-              }),
-            )),
-        SizedTextButton(
-          text: 'Next',
-          onPressed: () => viewModel.completeOnBoard(),
-        )
-      ],
+              })),
+          // Next Butonu
+          Observer(builder: (_) {
+            return SizedTextButton(
+              text: 'Get Started',
+              color: viewModel.currentPageIndex ==
+                      (viewModel.onBoardItems.length - 1)
+                  ? Color(0xFFF08A5D)
+                  : Color(0xFF7BC4B2),
+              onPressed: () => viewModel.completeOnBoard(),
+            );
+          }),
+          // Sayfanın aşağısında farklı ekranlara uyumlu bir boşluk
+          Expanded(flex: 1, child: Container()),
+        ],
+      ),
     );
   }
 }
