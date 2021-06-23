@@ -26,7 +26,8 @@ class Body extends StatelessWidget {
           Expanded(flex: 2, child: Container()),
           // Gerkli resimlerin ve resim altı yazının bulunduğu bölüm
           Expanded(flex: 8, child: OnBoardPageView(viewModel: viewModel)),
-          // Kaçıncı sayfada olduğumuzu gösteren belirteçler
+          // Kaçıncı sayfada olduğumuzu gösteren belirteçler.
+          // test yorum satırı
           Expanded(
             flex: 1,
             child: Center(
